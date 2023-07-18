@@ -11,7 +11,7 @@ class UserController extends Controller
     public function show()
     {
         $template = new Template();
-        $template->parse("Hello, {{ name }}!")->render([
+        echo $template->parse("Hello, {{ name }}!")->render([
             'name' => 'John Doe'
         ]);
     }
