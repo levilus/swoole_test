@@ -12,9 +12,10 @@ class UserController extends Controller
     public function show(Request $request)
     {
         $template = new Template();
+        Browser::setCount($request->get("a", 0));
         return $template->parse("Hello, {{ name }}! count is {{ count }}")->render([
             'name' => 'John Doe',
-            'count' => $request->get("a", 0),
+            'count' => Browser::getCount(),
         ]);
     }
 }
