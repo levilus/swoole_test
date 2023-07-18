@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class Browser
 {
+
+    public static $count = 1;
     /**
      * Handle an incoming request.
      *
@@ -16,6 +18,12 @@ class Browser
      */
     public function handle(Request $request, Closure $next)
     {
+        self::checkLogin();
         return $next($request);
+    }
+
+    public static function checkLogin()
+    {
+        return self::$count++;
     }
 }
