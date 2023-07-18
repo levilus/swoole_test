@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Liquid\Template;
 
 class UserController extends Controller
 {
     //
     public function show()
     {
-        var_dump('hello');
+        $template = new Template();
+        $template->parse("Hello, {{ name }}!")->render([
+            'name' => 'John Doe'
+        ]);
     }
 }
