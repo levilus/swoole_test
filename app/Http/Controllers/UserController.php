@@ -14,7 +14,7 @@ class UserController extends Controller
         $template = new Template();
         return $template->parse("Hello, {{ name }}! count is {{ count }}")->render([
             'name' => 'John Doe',
-            'count' => Browser::checkLogin(),
+            'count' => $request->get("a", 0),
         ]);
     }
 }
