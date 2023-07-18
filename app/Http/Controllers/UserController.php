@@ -9,7 +9,7 @@ use Liquid\Template;
 class UserController extends Controller
 {
     //
-    public function show()
+    public function show(Request $request)
     {
         $template = new Template();
         return $template->parse("Hello, {{ name }}! count is {{ count }}")->render([
